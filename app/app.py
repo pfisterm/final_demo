@@ -16,12 +16,17 @@ for member in data["members"]:
 
 while len(chores) > 0:
     for member in data["members"]:
-        task = ''.join(random.choice(chores))
+        task = random.choice(chores)
         chores.remove(task)
         assignments[member].append(task)
 
-for member in assignments:
-    email = input(f'Please enter {member}s email addresss:')
+#for member in assignments:
+    #email = input(f'Please enter {member}s email addresss:')
     #assignments[member]["email"] = email
 
-print(assignments)
+
+
+for member in assignments:    
+    print(member, ":", assignments[member])
+
+
