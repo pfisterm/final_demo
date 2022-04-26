@@ -1,18 +1,43 @@
 
+## Data Inputs
 
-data = {"members": ["Catie", "Maddie", "Meher", "Nina", "Rebecca"], 
-"chores": ["vaccuming", "kitchen counters", "stove", "kitchen and dining table", 
-"kitchen sink", "bathroom counter", "mirror", "showers", "toilets", "trash and recycling"]}
+data = {"number": "L21", "members": [], 
+"chores": [], "emails":[]}
 
+#three inputs: members, chores, emails
+#three keys, 5, 10, 5 values
 
-import random
+exit_loop = "exit"
+userinput = input("Enter the name of the roommate:")
 
-chores = data["chores"]
+while userinput != exit_loop:
+    data["members"].append(userinput)
+    userinput = input("Enter the name of the roommate:")
 
-assignments = {}
+userinput = input("Enter the chore:")
+
+while userinput != exit_loop:
+    data["chores"].append(userinput) 
+    userinput = input("Enter the chore:")
+
+userinput = input("Enter the roommate's email:")
+
+while userinput != exit_loop:
+    data["emails"].append(userinput)
+    userinput = input("Enter the roommate's email:")
+
+print(data)
+
+## App Structure
+
+import(random)
+
+assignments{}
 
 for member in data["members"]:
     assignments[member] = []
+
+chores = data["chores"]
 
 while len(chores) > 0:
     for member in data["members"]:
@@ -28,5 +53,8 @@ while len(chores) > 0:
 
 for member in assignments:    
     print(member, ":", assignments[member])
+
+
+
 
 
