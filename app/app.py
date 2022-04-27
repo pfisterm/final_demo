@@ -12,8 +12,6 @@ userinput = input("Enter the name of the roommate:")
 
 while userinput != exit_loop:
     data["members"].append(userinput)
-    email = input(f'Please enter the email for {userinput}:')
-    data["emails"].append(email)
     userinput = input("Enter the name of the roommate:")
     
 
@@ -24,7 +22,7 @@ while userinput != exit_loop:
     userinput = input("Enter the chore:")
 
 
-print(data)
+
 
 ## App Structure
 
@@ -35,28 +33,28 @@ assignments = dict()
 for member in data["members"]:
     assignments[member] = []
 
-#for member in assignments:
-   #assignments[member] = dict()
-    #member["email"] = []
+for member in assignments:
+   assignments[member] = dict()
+   assignments[member]["tasks"] = []
 
-print(assignments)
 
-#for member in data["member"]:
-    #assignments[member]["email"].append(data["emails"])
+for member in assignments:
+    email = input(f'Please enter the email for {member}:')
+    assignments[member]["email"] = email
 
 
 chores = data["chores"]
 
 while len(chores) > 0:
-    for member in data["members"]:
+    for member in assignments:
         task = random.choice(chores)
         chores.remove(task)
-        assignments[member].append(task)
+        assignments[member]["tasks"].append(task)
 
-
+print(assignments)
 
 for member in assignments:    
-    print(member, ":", assignments[member])
+    print(member, ":", assignments[member]["tasks"])
 
 
 
