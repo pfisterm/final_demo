@@ -1,6 +1,6 @@
-## Welcome to the Chore Schedule App
+# Welcome to the Chore Schedule App
 
-# Setup:
+## Setup:
 
 Install the required packages using the following code:
 ``` pip install -r requirements.txt ```
