@@ -1,0 +1,7 @@
+#this is the requirements.txt file
+
+python-dotenv
+sendgrid==6.6.0
+
+flask
+gunicorn
