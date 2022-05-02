@@ -36,11 +36,8 @@ for member in data["members"]:
 for member in assignments:
    assignments[member] = dict()
    assignments[member]["tasks"] = []
-
-
-for member in assignments:
-    email = input(f'Please enter the email for {member}:')
-    assignments[member]["email"] = email
+   email = input(f'Please enter the email for {member}:')
+   assignments[member]["email"] = email
 
 
 chores = data["chores"]
@@ -58,5 +55,4 @@ for member in assignments:
 
 
 
-
-
+    
