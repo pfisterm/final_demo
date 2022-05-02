@@ -1,4 +1,5 @@
 
+
 # Welcome to the Chore Schedule App
 
 ## Setup:
@@ -15,5 +16,6 @@ After the enviornment is created, make sure to activate the enviornment prior to
 Create .env file that includes the sendergrid API key and the sender email address:
 ``` SENDGRID_API_KEY = " " ```
 ``` SENDER_EMAIL_ADDRESS = " " ```
+
 
 
