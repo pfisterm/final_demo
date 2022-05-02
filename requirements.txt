@@ -1,7 +1,22 @@
-#this is the requirements.txt file
+
+# this is the requirements.txt file...
+
+#
+# DEVELOPMENT / PRODUCTION
+#
 
 python-dotenv
+pgeocode
+pandas
+requests
 sendgrid==6.6.0
+
+#
+# TEST
+#
+
+pytest
 
 flask
 gunicorn
+
