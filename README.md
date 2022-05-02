@@ -1,5 +1,4 @@
 
-
 # Welcome to the Chore Schedule App
 
 ## Setup:
