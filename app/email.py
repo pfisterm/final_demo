@@ -46,17 +46,20 @@ if __name__ == "__main__":
 
     example_subject = "Weekly Chore Assignment"
 
-    example_html = f"""
-    <h3>These are your following chores for the week</h3>
+    for member in assignments:
+        example_recipient_address = assignments[member]["email"]
 
-    <h4>Today's Date</h4>
-    <p>Monday, January 1, 2040</p>
+        example_html = f"""
+        <h3>These are your following chores for the week</h3>
 
-    <h4>My Chores</h4>
-    <ul>
-        <var>assignments[member]["tasks"]</var>
-    </ul>
+        <h4>Today's Date</h4>
+        <p>Monday, January 1, 2040</p>
 
-        """
+        <h4>My Chores</h4>
+        <ul>
+            <var>assignments[member]["tasks"]</var>
+        </ul>
 
-    print(send_email(example_subject, example_html))
+            """
+
+        print(send_email(example_subject, example_html, example_recipient_address))
