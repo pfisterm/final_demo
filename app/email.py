@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+from app.chores import assign_chores
+
 load_dotenv()
 
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
@@ -21,7 +23,7 @@ def send_email(subject="[Daily Briefing] This is a test", html="<p>Hello World</
     print("SUBJECT:", subject)
     #print("HTML:", html)
 
-    message = Mail(from_email=SENDER_EMAIL_ADDRESS, to_emails=SENDER_EMAIL_ADDRESS, subject=subject, html_content=html)
+    message = Mail(from_email=SENDER_EMAIL_ADDRESS, to_emails=recipient_address, subject=subject, html_content=html)
     try:
         response = client.send(message)
         print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
@@ -33,29 +35,23 @@ def send_email(subject="[Daily Briefing] This is a test", html="<p>Hello World</
 
 
 if __name__ == "__main__":
-    example_subject = "[Daily Briefing] This is a test"
+    assign_chores()
 
-    example_html = f"""
-    <h3>This is a test of the Daily Briefing Service</h3>
+    for member in assignments:
 
-    <h4>Today's Date</h4>
-    <p>Monday, January 1, 2040</p>
+        example_subject = "Weekly Chore Assignment"
 
-    <h4>My Stocks</h4>
-    <ul>
-        <li>MSFT | +3%</li>
-        <li>GOOG | +2%</li>
-        <li>AAPL | +4%</li>
-    </ul>
+        example_html = f"""
+        <h3>These are your following chores for the week</h3>
 
-    <h4>My Forecast</h4>
-    <ul>
-        <li>10:00 AM | 65 DEGREES | CLEAR SKIES</li>
-        <li>01:00 PM | 70 DEGREES | CLEAR SKIES</li>
-        <li>04:00 PM | 75 DEGREES | CLEAR SKIES</li>
-        <li>07:00 PM | 67 DEGREES | PARTLY CLOUDY</li>
-        <li>10:00 PM | 56 DEGREES | CLEAR SKIES</li>
-    </ul>
-    """
+        <h4>Today's Date</h4>
+        <p>Monday, January 1, 2040</p>
 
-    send_email(example_subject, example_html)
+        <h4>My Chores</h4>
+        <ul>
+            <var>assignments[member]["tasks"]</var>
+        </ul>
+
+        """
+
+        print(send_email(example_subject, example_html)
