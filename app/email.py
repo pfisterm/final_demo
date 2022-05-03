@@ -35,23 +35,28 @@ def send_email(subject="[Daily Briefing] This is a test", html="<p>Hello World</
 
 
 if __name__ == "__main__":
-    assign_chores()
 
-    for member in assignments:
+    assignments = {}
 
-        example_subject = "Weekly Chore Assignment"
+    assignments = assign_chores()
 
-        example_html = f"""
-        <h3>These are your following chores for the week</h3>
+    print(type(assignments))
 
-        <h4>Today's Date</h4>
-        <p>Monday, January 1, 2040</p>
+    #for member in assignments:
 
-        <h4>My Chores</h4>
-        <ul>
-            <var>assignments[member]["tasks"]</var>
-        </ul>
+    example_subject = "Weekly Chore Assignment"
+
+    example_html = f"""
+    <h3>These are your following chores for the week</h3>
+
+    <h4>Today's Date</h4>
+    <p>Monday, January 1, 2040</p>
+
+    <h4>My Chores</h4>
+    <ul>
+        <var>assignments[member]["tasks"]</var>
+    </ul>
 
         """
 
-        print(send_email(example_subject, example_html)
+    print(send_email(example_subject, example_html))
