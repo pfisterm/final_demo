@@ -1,0 +1,41 @@
+
+from flask import Blueprint, request, render_templete, redirect, flash
+
+from app.chores import assign_chores
+
+from app.email import send_email
+
+@chores_routes.route("chores/assignments")
+def chores_assignment():
+    print("CHORE ASSIGNMENTS...")
+    return render_template("chore_assingments.html")
+
+@chores_routes.route("chores/results")
+def chores_results():
+    
+    assignments = {}
+
+    assignments = assign_chores()
+
+    example_subject = "Weekly Chore Assignment"
+
+    for member in assignments:
+        tasks = assignments[member]["tasks"]
+
+        chores = ' & '.join(', '.join(tasks).rsplit(', ', 1))
+
+        example_recipient_address = assignments[member]["email"]
+
+        example_html = f"""
+            <h3>These are your following chores for the week</h3>
+
+            <h4>My Chores:</h4>
+            <ul>
+                <p> - {chores} </p>   
+            </ul>
+            """
+
+        send_email(example_subject, example_html, example_recipient_address)
+
+    flash("Here are the chore assignments:")
+    return render_template("chore_results.html")

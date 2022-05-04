@@ -4,7 +4,7 @@
 def assign_chores():
     ## Data Inputs
 
-    data = {"number": "L21", "members": [], 
+    data = {"members": [], 
     "chores": [], "emails":[]}
 
     #three inputs: members, chores, emails
@@ -23,7 +23,7 @@ def assign_chores():
     
     print("--------------------------")
 
-    print("Please enter all the chores to be completed this week. When finished please enter exit.")
+    print("Please enter all the chores that need to be completed. When finished please enter exit.")
 
     print("--------------------------")
         
