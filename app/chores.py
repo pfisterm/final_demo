@@ -10,12 +10,22 @@ def assign_chores():
     #three inputs: members, chores, emails
     #three keys, 5, 10, 5 values
 
+    print("Please enter the names of all the roommates in the apartment. When finished enter exit.")
+
+    print("--------------------------")
+
     exit_loop = "exit"
     userinput = input("Enter the name of the roommate:")
 
     while userinput != exit_loop:
         data["members"].append(userinput)
         userinput = input("Enter the name of the roommate:")
+    
+    print("--------------------------")
+
+    print("Please enter all the chores to be completed this week. When finished please enter exit.")
+
+    print("--------------------------")
         
 
     userinput = input("Enter the chore:")
@@ -24,7 +34,7 @@ def assign_chores():
         data["chores"].append(userinput) 
         userinput = input("Enter the chore:")
 
-
+    print("---------------------------")
 
 
     ## App Structure
@@ -51,8 +61,13 @@ def assign_chores():
             chores.remove(task)
             assignments[member]["tasks"].append(task)
 
-    #return print(assignments)
+    for member in assignments:
+        tasks = assignments[member]["tasks"]
+        chores = ' & '.join(', '.join(tasks).rsplit(', ', 1))
+        print(f"{member}: {chores}")
+
     return assignments
+
 
 
 
