@@ -8,9 +8,9 @@ from app.email import send_email
 @chores_routes.route("chores/assignments")
 def chores_assignment():
     print("CHORE ASSIGNMENTS...")
-    return render_template("chore_assingments.html")
+    return render_template("chores_assingments.html")
 
-@chores_routes.route("chores/results")
+@chores_routes.route("chores/results", actions = ["POST"])
 def chores_results():
     
     assignments = {}
@@ -38,4 +38,4 @@ def chores_results():
         send_email(example_subject, example_html, example_recipient_address)
 
     flash("Here are the chore assignments:")
-    return render_template("chore_results.html")
+    return render_template("chores_results.html")

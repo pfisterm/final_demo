@@ -1,0 +1,18 @@
+
+
+{% extends "bootstrap_layout.html" %}
+{% set active_page = "chores_assignments" %}
+
+{% block content %}
+
+    <h2>Chore Assignments</h2>
+
+    <p>To run the chore assingments press the button below...</p>
+
+    <form action="/chores/results" method="POST">
+
+        <button>Run</button>
+
+    </form>
+
+{% endblock %}
