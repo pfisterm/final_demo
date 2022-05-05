@@ -1,21 +1,28 @@
 
 from flask import Blueprint, request, render_templete, redirect, flash
 
-from app.chores import assign_chores
+from app.chores_function import chores
 
 from app.email import send_email
 
-@chores_routes.route("chores/assignments")
-def chores_assignment():
+@chores_routes.route("/chores/assignments")
+def chores_assignments():
     print("CHORE ASSIGNMENTS...")
-    return render_template("chores_assingments.html")
+    #return("Welcome to the App")
+    return render_template("chores_assignments.html")
 
-@chores_routes.route("chores/results", actions = ["POST"])
+@chores_routes.route("chores/results", methods = ["GET", "POST"])
 def chores_results():
     
     assignments = {}
 
-    assignments = assign_chores()
+    members = ls(string.split(members))
+
+    chores = ls(string.split(chores))
+
+    emails = ls(string.split(emails))
+
+    assignments = chores(members, chores, emails)
 
     example_subject = "Weekly Chore Assignment"
 
@@ -38,4 +45,4 @@ def chores_results():
         send_email(example_subject, example_html, example_recipient_address)
 
     flash("Here are the chore assignments:")
-    return render_template("chores_results.html")
+    return render_template("chores_results.html", assignments = assignments)

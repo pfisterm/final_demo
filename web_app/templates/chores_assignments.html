@@ -6,11 +6,27 @@
 {% block content %}
 
     <h2>Chore Assignments</h2>
+    
 
-    <p>To run the chore assingments press the button below...</p>
+    <p>To run the chore assignments please enter the following
+        information and then press the button below...</p>
 
     <form action="/chores/results" method="POST">
+       
 
+        <label>Roommates:</label>
+        <input type="text" name="members" placeholder="Sally, John">
+        <br>
+
+        <label>Chores:</label>
+        <input type = "text" name = "chores" placeholder = "kitchen, bathroom, trash, sweeping">
+        <br>
+
+        <label>Emails:</label>
+        <input type = "text" name = "emails" placeholder = "sally@gmail.com, john@gmail.com">
+        <br>
+
+    
         <button>Run</button>
 
     </form>
