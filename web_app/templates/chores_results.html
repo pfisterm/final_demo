@@ -7,11 +7,11 @@
 {% block content %}
 
     <h2>Chore Assignments:</h2>
-
+    
     <ul>
-    {% for member in assignments %}
-        <li>{{ member }} | {{ (' & '.join(', '.join(member[tasks]).rsplit(', ', 1))).upper() }}</li>
-    {% endfor %}
-    </ul>
+        {% for member in assignments %}
+            <li>{{ member }}</li>
+        {% endfor %}
+        </ul>
 
 {% endblock %}

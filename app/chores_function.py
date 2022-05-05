@@ -1,17 +1,6 @@
 #Adjusted chores function to run on web app
 
-
-def chores(members, chores, emails):
-
-    data = {"members": [], 
-    "chores": [], "emails":[]}
-
-    data["members"] = members
-    data["chores"] = chores
-    data["emails"] = emails
-
-
-    ## App Structure
+def chores(data = dict()):
 
     import random
 
