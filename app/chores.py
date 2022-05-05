@@ -4,11 +4,7 @@
 def assign_chores():
     ## Data Inputs
 
-    data = {"members": [], 
-    "chores": [], "emails":[]}
-
-    #three inputs: members, chores, emails
-    #three keys, 5, 10, 5 values
+    data = {"members": [], "chores": []}
 
     print("Please enter the names of all the roommates in the apartment. When finished enter exit.")
 

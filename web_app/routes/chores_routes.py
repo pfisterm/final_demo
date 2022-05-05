@@ -1,8 +1,6 @@
 
 from flask import Blueprint, request, render_template, redirect, flash
 
-from app.chores_function import chores
-
 from app.email import send_email
 
 import random
@@ -29,17 +27,16 @@ def chores_results():
     emails = request_data.get("emails")
     
 
-    members = list(members.split(","))
-    chores = list(chores.split(","))
-    emails = list(emails.split(","))
+    members = list(members.split(", "))
+    chores = list(chores.split(", "))
+    emails = list(emails.split(", "))
 
     data = dict()
 
-    data = {"members": [], "chores": [], "emails":[]}
+    data = {"members": [], "chores": []}
 
     data["members"] = members
     data["chores"] = chores
-    data["emails"] = emails
 
     assignments = dict()
 
@@ -50,9 +47,11 @@ def chores_results():
         assignments[member] = dict()
         assignments[member]["tasks"] = []
         assignments[member]["email"] = []
-    
-    for email in data["emails"]:
-        assignments[member]["email"] = email
+
+    while len(emails) > 0:
+        for member in assignments:
+            assignments[member]["email"] = emails[0]
+            del emails[0]
 
     chores = data["chores"]
 
@@ -68,7 +67,7 @@ def chores_results():
         tasks = assignments[member]["tasks"]
         chores = ' & '.join(', '.join(tasks).rsplit(', ', 1))
         y = " | "
-        x = member + y + chores
+        x = member + y + chores.title()
         assigned_chores.append(x)
 
     example_subject = "Weekly Chore Assignment"
@@ -85,11 +84,12 @@ def chores_results():
 
             <h4>My Chores:</h4>
             <ul>
-                <p> - {chores} </p>   
+                <p> - {chores.title()} </p>   
             </ul>
             """
 
         send_email(example_subject, example_html, example_recipient_address)
 
+
     flash("Here are the chore assignments:")
-    return render_template("chores_results.html", assignments = assigned_chores)
+    return render_template("chores_results.html", assigned_chores = assigned_chores)
