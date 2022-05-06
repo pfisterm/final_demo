@@ -13,7 +13,7 @@ After the enviornment is created, make sure to activate the enviornment prior to
 ``` conda activate app-env```
 
 Create .env file that includes the sendergrid API key and the sender email address:<br>
-``` SENDGRID_API_KEY = " " ```
+``` SENDGRID_API_KEY = " " ``` <br>
 ``` SENDER_EMAIL_ADDRESS = " " ```
 
 ## Running the App:
