@@ -32,7 +32,7 @@ Running test:
 
 # Finding the App on the Remote Server
 
-To find the web app on the remote server, please go to the following link [Chore Assignment App] (mighty-anchorage-11817.herokuapp.com)
+To find the web app on the remote server, please go to the following link [Chore Assignment App] (https://mighty-anchorage-11817.herokuapp.com)
 
 ## Creating a Web App
 
