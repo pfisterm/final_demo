@@ -1,9 +1,6 @@
-
-#create a function that takes in user inputs and returns assigned chores
+import random
 
 def assign_chores():
-    ## Data Inputs
-
     data = {"members": [], "chores": []}
 
     print("Please enter the names of all the roommates in the apartment. When finished enter exit.")
@@ -31,11 +28,6 @@ def assign_chores():
         userinput = input("Enter the chore:")
 
     print("---------------------------")
-
-
-    ## App Structure
-
-    import random
 
     assignments = dict()
 

@@ -16,6 +16,7 @@ sendgrid==6.6.0
 #
 
 pytest
+padas
 
 flask
 gunicorn
